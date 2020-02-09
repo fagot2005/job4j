@@ -15,6 +15,8 @@ public class Fit {
         double woman = womanWeight(164);
         System.out.println("Man 180 is " + man);
         System.out.println("Woman 164 is " + woman);
+
+        //Add comit to GitHub
     }
 
 }
