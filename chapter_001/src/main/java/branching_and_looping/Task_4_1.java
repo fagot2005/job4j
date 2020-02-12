@@ -17,8 +17,4 @@ public class Task_4_1 {
 
         return rsl;
     }
-    public static void main(String[] args) {
-        String inputString = "Пока.";
-        System.out.println(answer(inputString));
-    }
 }
