@@ -1,20 +1,44 @@
 package converter;
 
+/**
+ * Package for converter task.
+ *
+ * @author Vitaly Lashchenko (parsentev@yandex.ru)
+ * @version $Id$
+ * @since 0.1
+ */
+
 public class Converter {
 
         public static int rubleToEuro(int value) {
+            /**
+             * @param value - cумма в валюте Рубли.
+             * @return - cумма в валюте Рубли переведенная в Евро.
+             */
             return value / 70;
         }
 
         public static int rubleToDollar(int value) {
+            /**
+             * @param value - cумма в валюте Рубли.
+             * @return - cумма в валюте Рубли переведенная в Доллары.
+             */
         return value / 60;
     }
 
     public static int dollarToRuble(int value) {
+        /**
+         * @param value - cумма в валюте Доллары.
+         * @return - cумма в валюте Доллары переведенная в Рубли.
+         */
         return value * 60;
     }
 
     public static int euroToRuble(int value) {
+        /**
+         * @param value - cумма в валюте Евро.
+         * @return - cумма в валюте Евро переведенная в Рубли.
+         */
         return value * 70;
     }
 
