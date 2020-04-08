@@ -9,28 +9,28 @@ package converter;
  */
 
 public class Converter {
-
+    /**
+     * @param value - cумма в валюте Рубли.
+     * @return - cумма в валюте Рубли переведенная в Евро.
+     */
         public static int rubleToEuro(int value) {
-            /**
-             * @param value - cумма в валюте Рубли.
-             * @return - cумма в валюте Рубли переведенная в Евро.
-             */
+
             return value / 70;
         }
-
+    /**
+     * @param value - cумма в валюте Рубли.
+     * @return - cумма в валюте Рубли переведенная в Доллары.
+     */
         public static int rubleToDollar(int value) {
-            /**
-             * @param value - cумма в валюте Рубли.
-             * @return - cумма в валюте Рубли переведенная в Доллары.
-             */
+
         return value / 60;
     }
-
+    /**
+     * @param value - cумма в валюте Доллары.
+     * @return - cумма в валюте Доллары переведенная в Рубли.
+     */
     public static int dollarToRuble(int value) {
-        /**
-         * @param value - cумма в валюте Доллары.
-         * @return - cумма в валюте Доллары переведенная в Рубли.
-         */
+
         return value * 60;
     }
 
