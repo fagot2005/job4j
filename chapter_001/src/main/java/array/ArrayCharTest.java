@@ -21,4 +21,28 @@ public class ArrayCharTest {
             boolean result =ArrayChar.startsWith(word, pref);
             assertThat(result, is(false));
         }
+
+        @Test
+        public void whenEndWithPrefixThenTrue() {
+        char[] word = {'H', 'e', 'l', 'l', 'o'};
+        char[] post = {'l', 'o'};
+        boolean result = ArrayChar.endsWith(word, post);
+        assertThat(result, is(true));
+    }
+
+    @Test
+    public void whenNotEndWithPrefixThenFalse() {
+        char[] word = {'H', 'e', 'l', 'l', 'o'};
+        char[] post = {'l', 'a'};
+        boolean result = ArrayChar.endsWith(word, post);
+        assertThat(result, is(false));
+    }
+
+    @Test
+    public void whenNotEndWithPrefixThenFalseThreeSymbol() {
+        char[] word = {'H', 'e', 'l', 'l', 'o'};
+        char[] post = {'l', 'y', 'o'};
+        boolean result = ArrayChar.endsWith(word, post);
+        assertThat(result, is(false));
+    }
     }
