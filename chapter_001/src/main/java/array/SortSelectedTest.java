@@ -27,4 +27,5 @@ public class SortSelectedTest {
         int[] expect = new int[] {1, 1, 1, 1, 5};
         assertThat(result, is(expect));
     }
+
 }
