@@ -1,11 +1,11 @@
-package branching_and_looping;
+package branchingandlooping;
 
 import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 
-public class Task_4_1Test {
+public class TaskFourOneTest {
     @Test
     public void whenGreetBot() {
         assertThat(Task_4_1.answer("Привет, Бот."),

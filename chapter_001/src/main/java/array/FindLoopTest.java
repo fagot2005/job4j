@@ -4,9 +4,6 @@ import org.junit.jupiter.api.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
-
-import static org.junit.jupiter.api.Assertions.*;
-
 class FindLoopTest {
 
     @Test

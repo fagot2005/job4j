@@ -1,6 +1,6 @@
-package branching_and_looping;
+package branchingandlooping;
 
-public class Task_4_0 {
+public class TaskFourAndNull {
     public static void main(String[] args) {
         possibleDiv(4);
         possibleDiv(0);
@@ -11,7 +11,7 @@ public class Task_4_0 {
         if (number == 0) {
             System.out.println("Could not div by 0.");
         }
-        if (number < 0){
+        if (number < 0) {
             System.out.println("This is negative numbers");
         }
 

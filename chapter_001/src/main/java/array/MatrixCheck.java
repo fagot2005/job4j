@@ -33,11 +33,11 @@ public class MatrixCheck {
 
     public static boolean isWin(char[][] board) {
         boolean result = false;
-        char [] combi = extractDiagonal(board);
-        for (int i=0; i<combi.length; i++){
+        char[] combi = extractDiagonal(board);
+        for (int i = 0; i < combi.length; i++) {
             boolean horizontal = monoHorizontal(board, i);
             boolean vertical = monoVertical(board, i);
-            if ((combi[i]=='X') && ((horizontal = true) || (vertical =true))) {
+            if ((combi[i] == 'X') && ((horizontal = true) || (vertical = true))) {
                 result = true;
                 break;
             }

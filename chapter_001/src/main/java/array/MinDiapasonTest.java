@@ -4,13 +4,11 @@ import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
-import static org.junit.Assert.*;
-
 public class MinDiapasonTest {
 
     @Test
     public void findMin() {
-        assertThat(MinDiapason.findMin(new int[] {-1, 0, 5, 10},1, 3),is(0)       );
+        assertThat(MinDiapason.findMin(new int[] {-1, 0, 5, 10}, 1, 3) ,is (0));
     }
     @Test
     public void whenLastMin() {

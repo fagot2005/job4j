@@ -1,33 +1,97 @@
-com.puppycrawl.tools.checkstyle.api.CheckstyleException: unable to parse configuration stream - Premature end of file.:-1:-1
-	at com.puppycrawl.tools.checkstyle.ConfigurationLoader.loadConfiguration(ConfigurationLoader.java:322)
-	at com.puppycrawl.tools.checkstyle.ConfigurationLoader.loadConfiguration(ConfigurationLoader.java:287)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.infernus.idea.checkstyle.service.cmd.OpLoadConfiguration.loadConfigurationForCheckstyle825AndAbove(OpLoadConfiguration.java:188)
-	at org.infernus.idea.checkstyle.service.cmd.OpLoadConfiguration.callLoadConfiguration(OpLoadConfiguration.java:156)
-	at org.infernus.idea.checkstyle.service.cmd.OpLoadConfiguration.execute(OpLoadConfiguration.java:139)
-	at org.infernus.idea.checkstyle.service.cmd.OpCreateChecker.loadConfig(OpCreateChecker.java:98)
-	at org.infernus.idea.checkstyle.service.cmd.OpCreateChecker.execute(OpCreateChecker.java:54)
-	at org.infernus.idea.checkstyle.service.cmd.OpCreateChecker.execute(OpCreateChecker.java:26)
-	at org.infernus.idea.checkstyle.service.CheckstyleActionsImpl.executeCommand(CheckstyleActionsImpl.java:130)
-	at org.infernus.idea.checkstyle.service.CheckstyleActionsImpl.createChecker(CheckstyleActionsImpl.java:60)
-	at org.infernus.idea.checkstyle.service.CheckstyleActionsImpl.createChecker(CheckstyleActionsImpl.java:51)
-	at org.infernus.idea.checkstyle.checker.CheckerFactoryWorker.run(CheckerFactoryWorker.java:46)
-Caused by: org.xml.sax.SAXParseException; Premature end of file.
-	at org.apache.xerces.util.ErrorHandlerWrapper.createSAXParseException(Unknown Source)
-	at org.apache.xerces.util.ErrorHandlerWrapper.fatalError(Unknown Source)
-	at org.apache.xerces.impl.XMLErrorReporter.reportError(Unknown Source)
-	at org.apache.xerces.impl.XMLErrorReporter.reportError(Unknown Source)
-	at org.apache.xerces.impl.XMLErrorReporter.reportError(Unknown Source)
-	at org.apache.xerces.impl.XMLVersionDetector.determineDocVersion(Unknown Source)
-	at org.apache.xerces.parsers.XML11Configuration.parse(Unknown Source)
-	at org.apache.xerces.parsers.XML11Configuration.parse(Unknown Source)
-	at org.apache.xerces.parsers.XMLParser.parse(Unknown Source)
-	at org.apache.xerces.parsers.AbstractSAXParser.parse(Unknown Source)
-	at org.apache.xerces.jaxp.SAXParserImpl$JAXPSAXParser.parse(Unknown Source)
-	at com.puppycrawl.tools.checkstyle.XmlLoader.parseInputSource(XmlLoader.java:86)
-	at com.puppycrawl.tools.checkstyle.ConfigurationLoader.parseInputSource(ConfigurationLoader.java:198)
-	at com.puppycrawl.tools.checkstyle.ConfigurationLoader.loadConfiguration(ConfigurationLoader.java:315)
-	... 15 more
+<?xml version="1.0"?>
+<!DOCTYPE module PUBLIC
+        "-//Puppy Crawl//DTD Check Configuration 1.3//EN"
+        "http://www.puppycrawl.com/dtds/configuration_1_3.dtd">
+
+<module name="Checker">
+
+    <!--Расширение файла должно быть java, properties, xml-->
+    <property name="fileExtensions" value="java, properties, xml"/>
+
+    <!-- Checks for Size Violations.                    -->
+    <!-- See http://checkstyle.sf.net/config_sizes.html -->
+    <module name="FileLength"/>
+
+    <!-- Checks for Headers                                -->
+    <!-- See http://checkstyle.sf.net/config_header.html   -->
+    <!-- <module name="Header"> -->
+    <!--   <property name="headerFile" value="${checkstyle.header.file}"/> -->
+    <!--   <property name="fileExtensions" value="java"/> -->
+    <!-- </module> -->
+
+    <module name="TreeWalker">
+
+        <!-- Checks for Naming Conventions.                  -->
+        <!-- See http://checkstyle.sf.net/config_naming.html -->
+        <module name="ConstantName"/>
+        <!--<module name="LocalFinalVariableName"/>-->
+        <module name="LocalVariableName"/>
+        <module name="MemberName"/>
+        <module name="MethodName"/>
+        <module name="PackageName">
+            <property name="format" value="^[a-z]+(\.[a-z0-9]*)*$"/>
+        </module>
+        <module name="ParameterName"/>
+        <module name="StaticVariableName"/>
+        <module name="TypeName"/>
+
+        <!-- Checks for Size Violations.                    -->
+        <!-- See http://checkstyle.sf.net/config_sizes.html -->
+        <!--<module name="LineLength"/>-->
+        <module name="MethodLength"/>
+        <module name="ParameterNumber"/>
+
+        <!-- Checks for whitespace                               -->
+        <!-- See http://checkstyle.sf.net/config_whitespace.html -->
+        <module name="EmptyForIteratorPad"/>
+        <module name="GenericWhitespace"/>
+        <module name="MethodParamPad"/>
+        <module name="NoWhitespaceAfter"/>
+        <module name="NoWhitespaceBefore"/>
+        <module name="OperatorWrap"/>
+        <module name="ParenPad"/>
+        <module name="TypecastParenPad"/>
+        <module name="WhitespaceAfter"/>
+        <module name="WhitespaceAround"/>
+
+        <!-- Modifier Checks                                    -->
+        <!-- See http://checkstyle.sf.net/config_modifiers.html -->
+
+        <!-- Checks for blocks. You know, those {}'s         -->
+        <!-- See http://checkstyle.sf.net/config_blocks.html -->
+        <module name="AvoidNestedBlocks"/>
+        <module name="EmptyBlock"/>
+        <module name="LeftCurly"/>
+        <module name="NeedBraces"/>
+        <module name="RightCurly"/>
+
+        <!-- Checks for common coding problems               -->
+        <!-- See http://checkstyle.sf.net/config_coding.html -->
+        <!--<module name="AvoidInlineConditionals"/>-->
+        <module name="EmptyStatement"/>
+        <module name="EqualsHashCode"/>
+        <!--<module name="HiddenField"/>-->
+        <module name="IllegalInstantiation"/>
+        <module name="InnerAssignment"/>
+        <!--<module name="MagicNumber"/>-->
+        <module name="MissingSwitchDefault"/>
+        <module name="SimplifyBooleanExpression"/>
+        <module name="SimplifyBooleanReturn"/>
+
+        <!-- Checks for class design                         -->
+        <!-- See http://checkstyle.sf.net/config_design.html -->
+        <!--<module name="DesignForExtension"/>-->
+        <!--<module name="FinalClass"/>-->
+        <!--<module name="HideUtilityClassConstructor"/>-->
+        <module name="InterfaceIsType"/>
+
+        <!-- Miscellaneous other checks.                   -->
+        <!-- See http://checkstyle.sf.net/config_misc.html -->
+        <module name="ArrayTypeStyle"/>
+        <!--<module name="FinalParameters"/>-->
+        <module name="TodoComment"/>
+        <module name="UpperEll"/>
+
+    </module>
+
+</module>
