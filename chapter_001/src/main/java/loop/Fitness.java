@@ -1,7 +1,6 @@
 package loop;
 
 public class Fitness {
-
     public static int calc(int ivan, int nik) {
         int mount = 0;
         while (ivan < nik) {

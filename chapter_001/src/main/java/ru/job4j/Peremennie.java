@@ -10,6 +10,5 @@ public class Peremennie {
         long distanceToSpaceObjects = 897598459856967986L;
         boolean workPermit = true;
         int fileSize = 120000000;
-
     }
 }

@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
-
 class SwitchArrayTest {
 
     @Test
@@ -15,7 +14,6 @@ class SwitchArrayTest {
         int[] result = SwitchArray.swap(input, source, dest);
         int[] expect = new int[] {1, 2, 3, 6, 5, 4};
         assertThat(result, is(expect));
-
         for (int index = 0; index < expect.length; index++) {
             System.out.println(expect[index]);
         }

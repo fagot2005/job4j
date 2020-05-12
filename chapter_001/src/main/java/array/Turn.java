@@ -11,14 +11,11 @@ public class Turn {
             }
         return array;
     }
-
     public static void main(String[] args) {
-
         int[] temp2 = new int[] {3, 9, 45, 66, 77, 150};
         back(temp2);
         for (int i = 0; i <= temp2.length - 1; i++) {
             System.out.println(temp2[i]);
         }
-
     }
 }

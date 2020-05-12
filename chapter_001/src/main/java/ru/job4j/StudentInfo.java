@@ -5,5 +5,4 @@ public class StudentInfo {
         System.out.println("123");
         System.out.println("48395834905");
     }
-
 }
