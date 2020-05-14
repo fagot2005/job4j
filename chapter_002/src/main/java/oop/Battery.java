@@ -1,21 +1,22 @@
 package oop;
 
 public class Battery {
-    public int value;
+    public int load;
 
-    public Battery(int another) {
-        this.value = another;
+    public Battery(int load) {
+        this.load = load;
     }
 
     public static void main(String[] args) {
-        Battery battery = new Battery(100);
-        Battery bataryConsumption = new Battery(25);
-        System.out.println(battery.value);
-        battery.exchenge(bataryConsumption);
-        System.out.println(battery.value);
+        Battery first = new Battery(100);
+        Battery another = new Battery(0);
+        System.out.println(first.load + " " + another.load);
+        first.exchenge(another);
+        System.out.println(first.load + " " + another.load);
     }
 
     public void exchenge(Battery another) {
-        this.value = this.value - another.value;
+        another.load = this.load;
+        this.load = this.load - another.load;
     }
 }
