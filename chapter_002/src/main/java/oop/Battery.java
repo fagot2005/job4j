@@ -13,10 +13,14 @@ public class Battery {
         System.out.println(first.load + " " + another.load);
         first.exchenge(another);
         System.out.println(first.load + " " + another.load);
+        first.exchenge(another);
+        System.out.println(first.load + " " + another.load);
+        first.exchenge(another);
+        System.out.println(first.load + " " + another.load);
     }
 
     public void exchenge(Battery another) {
-        another.load = this.load;
-        this.load = this.load - another.load;
+        this.load = this.load - 25;
+        another.load = another.load + 25;
     }
 }
