@@ -21,6 +21,6 @@ public class Battery {
 
     public void exchenge(Battery another) {
         this.load = this.load - 25;
-        another.load = another.load + 25;
+        another.load = another.load + this.load;
     }
 }
