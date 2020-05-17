@@ -2,17 +2,14 @@ package condition;
 
 public class Max {
     public static int max(int first, int second) {
-        int result = first >= second ? first : second;
-        return result;
+        return first >= second ? first : second;
     }
 
     public static int max(int first, int second, int thrid) {
-        int result = first >= max(second, thrid) ? first : max(second, thrid);
-        return result;
+        return max(thrid, max(first, second));
     }
 
     public static int max(int first, int second, int thrid, int four) {
-        int result = first >= max(second, thrid, four) ? first : max(second, thrid, four);
-        return result;
+        return max(four, max(thrid, max(first, second)));
     }
 }
