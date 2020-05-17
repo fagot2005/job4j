@@ -1,22 +1,22 @@
 package max;
 
 public class Reduce {
-    private int[] array1;
+    private int[] array;
 
     public void to(int[] array) {
-        array1 = array;
+        this.array = array;
     }
 
     public void print() {
-        for (int index = 0; index < array1.length; index++) {
-            System.out.println(array1[index]);
+        for (int index = 0; index < array.length; index++) {
+            System.out.println(array[index]);
         }
     }
 
     public static void main(String[] args) {
-        int[] array = {1, 2, 3};
+        int[] array1 = {1, 2, 3};
         Reduce reduce = new Reduce();
-        reduce.to(array);
+        reduce.to(array1);
         reduce.print();
     }
 }
