@@ -12,12 +12,20 @@ public class Triangle {
         this.thrid = thrid;
     }
 
-    public static boolean exist(double ab, double ac, double bc) {
-        Triangle triangle = new Triangle(ab, ac, bc);
+    public static boolean exist(Triangle triangle) {
         boolean existfalse = false;
-        if ((ab + ac) > bc && (ac + bc) > ab && (ab + bc) > ac) {
+        if ((triangle.first + triangle.second) > triangle.thrid
+                && (triangle.second + triangle.thrid) > triangle.first
+                && (triangle.first + triangle.thrid) > triangle.second) {
             existfalse = true;
         }
         return existfalse;
+    }
+
+    public static double area(Triangle triangle) {
+        double perimetr = 0.5 * (triangle.first + triangle.second + triangle.thrid);
+        return Math.sqrt(perimetr * (perimetr - triangle.first)
+                * (perimetr - triangle.second)
+                * (perimetr - triangle.thrid));
     }
 }
