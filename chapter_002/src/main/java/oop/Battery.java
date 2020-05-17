@@ -16,7 +16,7 @@ public class Battery {
     }
 
     public void exchenge(Battery another) {
-        another.load = this.load;
+        another.load = this.load + another.load;
         this.load = 0;
     }
 }
