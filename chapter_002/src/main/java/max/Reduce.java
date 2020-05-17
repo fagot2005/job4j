@@ -1,15 +1,15 @@
 package max;
 
 public class Reduce {
-    private int[] array;
+    private int[] array1;
 
     public void to(int[] array) {
-        this.array = array;
+        array1 = array;
     }
 
     public void print() {
-        for (int index = 0; index < array.length; index++) {
-            System.out.println(array[index]);
+        for (int index = 0; index < array1.length; index++) {
+            System.out.println(array1[index]);
         }
     }
 
