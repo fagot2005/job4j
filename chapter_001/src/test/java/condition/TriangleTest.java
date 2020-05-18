@@ -8,25 +8,29 @@ public class TriangleTest {
 
     @Test
     public void triangleInValid() {
-    Triangle triangleInvalid = new Triangle(12, 4, 6);
-    boolean result = Triangle.exist(triangleInvalid);
-    if (result) {
-        double trianglArea = Triangle.area(triangleInvalid);
-        assertThat(trianglArea, is(3.897114317029974));
-    } else {
-        assertThat(result, is(false));
+        Point first = new Point(5, 5);
+        Point second = new Point(3, 3);
+        Point thrid = new Point(8, 8);
+        Triangle triangle = new Triangle(first, second, thrid);
+        double result = triangle.area();
+        if (result == -1) {
+            assertThat(result, is(-1.0));
+        } else {
+            assertThat(result, is(2.0000000000000027));
+        }
     }
-}
 
     @Test
     public void triangleValid() {
-        Triangle triangleValid = new Triangle(3.0, 3.0, 3.0);
-        boolean result = Triangle.exist(triangleValid);
-        if (result) {
-            double trianglArea = Triangle.area(triangleValid);
-            assertThat(trianglArea, is(3.897114317029974));
+        Point first = new Point(5, 5);
+        Point second = new Point(-2, 4);
+        Point thrid = new Point(-3, 2);
+        Triangle triangle = new Triangle(first, second, thrid);
+        double result = triangle.area();
+        if (result == -1) {
+            assertThat(result, is(-1.0));
         } else {
-            assertThat(result, is(false));
+            assertThat(result, is(6.499999999999994));
         }
     }
 }
