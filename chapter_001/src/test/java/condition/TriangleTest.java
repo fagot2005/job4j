@@ -2,6 +2,7 @@ package condition;
 
 import org.junit.Test;
 import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
 public class TriangleTest {
@@ -13,11 +14,8 @@ public class TriangleTest {
         Point thrid = new Point(8, 8);
         Triangle triangle = new Triangle(first, second, thrid);
         double result = triangle.area();
-        if (result == -1) {
-            assertThat(result, is(-1.0));
-        } else {
-            assertThat(result, is(2.0000000000000027));
-        }
+         assertThat(result, is(-1.0));
+
     }
 
     @Test
@@ -27,10 +25,7 @@ public class TriangleTest {
         Point thrid = new Point(-3, 2);
         Triangle triangle = new Triangle(first, second, thrid);
         double result = triangle.area();
-        if (result == -1) {
-            assertThat(result, is(-1.0));
-        } else {
-            assertThat(result, is(6.499999999999994));
-        }
+        assertEquals(result, 6.49, 0.05);
+
     }
 }

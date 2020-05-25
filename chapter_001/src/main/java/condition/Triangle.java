@@ -45,11 +45,19 @@ public class Triangle {
         double b = first.distance(thrid);
         double c = second.distance(thrid);
         double p = period(a, b, c);
-        if ((a + b) > c && (a + c) > b && (b + c) > a) {
+        if (this.exist(a, b, c)) {
             rsl = Math.sqrt(p * (p - a) * (p - b) * (p - c));
         } else {
             rsl = -1;
         }
             return rsl;
+    }
+
+    private boolean exist(double a, double c, double b) {
+        if ((a + b) > c && (a + c) > b && (b + c) > a) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
