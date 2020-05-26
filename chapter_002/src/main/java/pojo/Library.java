@@ -32,7 +32,7 @@ public class Library {
         System.out.println("Shown only product.name = Clean code");
         for (int i=0; i<book.length; i++) {
             Book pr = book[i];
-            if (pr.getName()=="Clean code"){
+            if (pr.getName().equals("Clean code")){
                 System.out.println(pr.getName() + ", " + pr.getCount());
             }
 
