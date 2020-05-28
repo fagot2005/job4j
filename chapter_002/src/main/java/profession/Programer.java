@@ -1,8 +1,8 @@
 package profession;
 
 public class Programer extends Engineer {
-    String programLanguage;
-    String frimevorks;
+    private String programLanguage;
+    private String frimevorks;
 
     public String getProgramLanguage() {
         return programLanguage;

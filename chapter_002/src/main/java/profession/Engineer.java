@@ -1,7 +1,7 @@
 package profession;
 
 public class Engineer extends Profession {
-    String expirianse;
+    private String expirianse;
 
     public String getExpirianse() {
         return expirianse;

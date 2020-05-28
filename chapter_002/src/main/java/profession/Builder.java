@@ -1,7 +1,7 @@
 package profession;
 
 public class Builder extends Engineer {
-    String spezialisation;
+    private String spezialisation;
 
     public String getSpezialisation() {
         return spezialisation;

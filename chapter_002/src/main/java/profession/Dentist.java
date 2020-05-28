@@ -1,8 +1,8 @@
 package profession;
 
 public class Dentist extends Doctor {
-    String spezialisation;
-    String stag;
+    private String spezialisation;
+    private String stag;
 
     public String getSpezialisation() {
         return spezialisation;

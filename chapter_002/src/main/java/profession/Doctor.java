@@ -1,8 +1,8 @@
 package profession;
 
 public class Doctor extends Profession {
-    String diagnoz;
-    String pacient;
+    private String diagnoz;
+    private String pacient;
 
     public String getPacient() {
         return pacient;

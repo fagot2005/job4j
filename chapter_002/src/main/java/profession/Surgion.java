@@ -1,8 +1,8 @@
 package profession;
 
 public class Surgion extends Doctor {
-    String adress;
-    String age;
+    private String adress;
+    private String age;
 
     public String getAdress() {
         return adress;
