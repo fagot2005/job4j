@@ -11,15 +11,18 @@ public class Matches {
         System.out.println("Ты всегда начинаешь и можешь взять от 1 до 3 спичек включительно.");
         System.out.println("Проиграет тот, кто зберет последнюю спичку.");
         while (allCount > 0) {
-            System.out.println("Cколько спичек ты берешь?");
+            System.out.println("Ход первого игрока, сколько спичек ты берешь?");
             int count = Integer.valueOf(input.nextLine());
             allCount = allCount - count;
+            System.out.println("Осталось " + allCount + " спичек");
             if (allCount <= 0) {
                 win = 1;
                 break;
             }
-            System.out.println("Я беру 2 спички.");
-            allCount = allCount - 2;
+            System.out.println();
+            System.out.println("Ход вторго игрока, сколько спичек ты берешь?");
+            int count2 = Integer.valueOf(input.nextLine());
+            allCount = allCount - count2;
             if (allCount <= 0) {
                 win = 2;
                 break;
@@ -27,9 +30,9 @@ public class Matches {
             System.out.println("Осталось " + allCount + " спичек");
         }
         if (win == 1) {
-            System.out.println("Cпички кончились, я выиграл");
+            System.out.println("Cпички кончились, второй игрок выиграл");
         } else {
-            System.out.println("Cпички кончились, ты выиграл");
+            System.out.println("Cпички кончились, первый игрок выиграл");
         }
     }
 }
