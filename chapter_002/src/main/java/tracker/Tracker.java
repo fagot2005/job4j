@@ -1,5 +1,6 @@
 package tracker;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class Tracker {
@@ -19,12 +20,18 @@ public class Tracker {
         return item;
     }
 
-    public Item[] findAll() {
-        return null;
-    }
+    return Arrays.copyOf(items, positions);
 
     public Item[] findByName(String key) {
-        return null;
+        int pos[] = new int[positions];
+        int newSize = 0;
+        for (int = 0; i<items.lenght; i++){
+            if (items[i]==key){
+                pos[i] = items[i];
+                newSize+=;
+            }
+        }
+        return pos;
     }
     public Item findById(String id) {
         return null;
