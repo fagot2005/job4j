@@ -49,22 +49,32 @@ public class Shop {
         }
 
         System.out.println();
-        System.out.println("Сдвигаем все элементы массива влево на 1 элемент");
-        //записываем в ячейку с индексом 1 значение ячейки с индексом 2.
-        for (int i = products.length - 1; i >= 0; i--) {
-            if (products[i] != null) {
-                products[i + 1] = products[i];
-                products[i] = null;
-            }
-        }
+        System.out.println("Удаляем элемент с индекосм 1");
+        delete(products, 1);
+    }
+
+    public static Product[] delete(Product[] products, int index) {
+
         for (int i = 0; i < products.length; i++) {
             Product product = products[i];
-               //проверяем, что объект не равен null. так как  у нас массив не заполнен целиком.
+            //проверяем, что объект не равен null. так как  у нас массив не заполнен целиком.
             if (product != null) {
                 System.out.println(product.getName());
             } else {
                 System.out.println("null");
-                }
             }
         }
+        products[index] = null;
+        System.out.println();
+        for (int i = 0; i < products.length; i++) {
+            Product product = products[i];
+            //проверяем, что объект не равен null. так как  у нас массив не заполнен целиком.
+            if (product != null) {
+                System.out.println(product.getName());
+            } else {
+                System.out.println("null");
+            }
+        }
+        return products;
     }
+}
