@@ -11,7 +11,7 @@ public class ElementNotFoundException extends Exception {
     public static int indexOf(String[] value, String key)   {
         int rls = -1;
         for (int index = 0; index < value.length; index++) {
-            if (value.length == 0 || value == null) {
+            if ((value.length != 0 && value != null) || value[index].equals(key)) {
                 rls = index;
             }
             }
