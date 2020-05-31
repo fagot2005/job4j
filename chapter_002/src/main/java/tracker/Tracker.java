@@ -77,12 +77,16 @@ public class Tracker {
         } return rls;
     }
     public boolean delete(String id) {
+        boolean result = false;
         int index = indexOf(id);
-        items[index] = null;
-        System.arraycopy(items,index + 1, items, index, positions - index);
-        System.out.println(Arrays.toString(items));
-        items[positions - 1] = null;
-        positions = positions - 1;
-        return true;
+        if (index != -1) {
+            items[index] = null;
+            System.arraycopy(items,index + 1, items, index, positions - index);
+            System.out.println(Arrays.toString(items));
+            items[positions - 1] = null;
+            positions = positions - 1;
+            result = true;
+        }
+        return result;
     }
 }
