@@ -20,14 +20,7 @@ public class Tracker {
         return item;
     }
 
-//    public void  show() {
-//        Item[] result = new Item[positions];
-//        for (int index = 0; index < result.length; index++) {
-//            System.out.println(result[index].getId() + result[index].getName());
-//        }
-//    }
-
-    public Item[] findAll() {
+        public Item[] findAll() {
         return Arrays.copyOf(items, positions);
     }
 
@@ -59,10 +52,9 @@ public class Tracker {
     }
 
     public boolean replase(String id, Item item) {
-        String idReplase = findById(id).getName();
-        idReplase = item.getName();
-        items[idReplase].getId() = idReplase;
-        return true;
+       int index = indexOf(id);
+       items[index] = item;
+       return true;
     }
 
     private int index(String id) {
