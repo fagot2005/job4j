@@ -57,7 +57,7 @@ public class Tracker {
 //        }
 //        return Arrays.copyOf(newItemsArray, newSize);
     }
-//
+
     public boolean replase(String id, Item item) {
         String idReplase = findById(id).getName();
         idReplase = item.getName();
@@ -84,5 +84,13 @@ public class Tracker {
             }
         } return rls;
     }
-
+    public boolean delete(String id) {
+        int index = indexOf(id);
+        items[index] = null;
+        System.arraycopy(items,index + 1, items, index, positions - index);
+        System.out.println(Arrays.toString(items));
+        items[positions - 1] = null;
+        positions = positions - 1;
+        return true;
+    }
 }
