@@ -17,27 +17,40 @@ public class StartUI {
                 tracker.add(item);
             } else if (selest == 1) {
                 System.out.println("===Show all Item===");
-                tracker.findAll();
-//                    for (int index = 0; index<positions; index++){
-//                        System.out.println();
-                //}
+                Item[] itemsNew = tracker.findAll();
+                System.out.println("===Id====          ===Name===");
+                for (int index = 0; index < itemsNew.length; index++) {
+                    if (itemsNew[index] != null) {
+                        System.out.println(itemsNew[index].getId() + "   " + itemsNew[index].getName());
+                    }
+                }
             } else if (selest == 4) {
                 System.out.println("===Found Item by Id===");
                 System.out.println("Enter Id: ");
                 String name = scanner.nextLine();
-                Item item = new Item(name);
-                tracker.findById(item);
+                Item item = tracker.findById(name);
+                System.out.println("===Show Item by Id===");
+                System.out.println("===Id====          ===Name===");
+                System.out.println(item.getId() + "   " + item.getName());
             } else if (selest == 5) {
-                    System.out.println("===Found Item by Name===");
-                    System.out.println("Enter Name: ");
-                    String name = scanner.nextLine();
-                    Item item = new Item(name);
-                    tracker.findByName(item);
-                } else if (selest == 6) {
-                    run = false;
+                System.out.println("===Found Item by Name===");
+                System.out.println("Enter Name: ");
+                String name = scanner.nextLine();
+                Item[] item = tracker.findByName(name);
+                System.out.println("===Show Item by Name===");
+                System.out.println("===Id====          ===Name===");
+                for (int index = 0; index < item.length; index++) {
+                    if (item[index] != null) {
+                        System.out.println(item[index].getId() + "   " + item[index].getName());
+                    }
                 }
+                    } else if (selest == 6) {
+                    run = false;
+                } else {
+                        run = true;
             }
         }
+    }
 
         private void showMenu () {
             System.out.println("Menu");
@@ -50,11 +63,10 @@ public class StartUI {
             System.out.println("6. Exit");
         }
 
-        public static void main (String[]args){
+        public static void main (String[] args){
             Scanner scanner = new Scanner(System.in);
             Tracker tracker = new Tracker();
             new StartUI().unit(scanner, tracker);
         }
 
     }
-}
