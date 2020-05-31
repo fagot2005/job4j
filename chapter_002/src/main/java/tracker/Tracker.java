@@ -44,27 +44,45 @@ public class Tracker {
         return Arrays.copyOf(newItemsArray, newSize);
     }
 
-    public Item[] findById(String id) {
-        Item[] newItemsArray = new Item[positions];
-        int newSize = 0;
-        for (int i = 0; i < positions; i++) {
-            if (items[i].equals(id)) {
-                newItemsArray[i] = items[i];
-                newSize++;
-            }
-        }
-        return Arrays.copyOf(newItemsArray, newSize);
+    public Item findById(String id) {
+        int index = indexOf(id);
+        return index != -1 ? items[index] : null;
+//        Item[] newItemsArray = new Item[positions];
+//        int newSize = 0;
+//        for (int i = 0; i < positions; i++) {
+//            if (items[i].equals(id)) {
+//                newItemsArray[i] = items[i];
+//                newSize++;
+//            }
+//        }
+//        return Arrays.copyOf(newItemsArray, newSize);
     }
 //
-//    public boolean replase(String id, Item item) {
-//
-//    }
-//    private int index(String) {
-//        int rls = -1;
-//        for (int index = 0; index<positions; index++) {
-//            if (items[index].getId().equals(id));
-//            rls = index;
-//            break;
-//        } return rls;
-//    }
+    public boolean replase(String id, Item item) {
+        String idReplase = findById(id).getName();
+        idReplase = item.getName();
+        items[idReplase].getId() = idReplase;
+        return true;
+    }
+
+    private int index(String id) {
+        int rls = -1;
+        for (int index = 0; index < positions; index++) {
+            if (items[index].getId().equals(id)) {
+                rls = index;
+                break;
+            }
+        } return rls;
+    }
+
+    private int indexOf(String id) {
+        int rls = -1;
+        for (int index = 0; index < positions; index++) {
+            if (items[index].getId().equals(id)) {
+                rls = index;
+                break;
+            }
+        } return rls;
+    }
+
 }
