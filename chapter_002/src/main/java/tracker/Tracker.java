@@ -43,9 +43,13 @@ public class Tracker {
     }
 
     public boolean replase(String id, Item item) {
+       boolean result = false;
        int index = indexOf(id);
-       items[index] = item;
-       return true;
+       if (index != -1) {
+           items[index] = item;
+           result = true;
+       }
+       return result;
     }
 
     private int index(String id) {
