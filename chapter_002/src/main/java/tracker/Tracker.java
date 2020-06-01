@@ -71,9 +71,7 @@ public class Tracker {
         boolean result = false;
         int index = indexOf(id);
         if (index != -1) {
-            items[index] = null;
             System.arraycopy(items,index + 1, items, index, positions - index);
-            System.out.println(Arrays.toString(items));
             items[positions - 1] = null;
             positions = positions - 1;
             result = true;
