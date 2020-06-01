@@ -1,18 +1,18 @@
 package tracker;
 
-import java.util.Scanner;
+//import java.util.Scanner;
 
 public class StartUI {
-    public void unit(Scanner scanner, Tracker tracker) {
+    public void unit(Input input, Tracker tracker) {
         boolean run = true;
         while (run) {
             this.showMenu();
             System.out.println("Select:");
-            int selest = Integer.valueOf(scanner.nextLine());
+            int selest = Integer.valueOf(input.askStr("===Greate new Item==="));
             if (selest == 0) {
                 System.out.println("===Greate new Item===");
                 System.out.println("Enter Name: ");
-                String name = scanner.nextLine();
+                String name = input.askStr("Enter Name: ");
                 Item item = new Item(name);
                 tracker.add(item);
             } else if (selest == 1) {
@@ -27,9 +27,9 @@ public class StartUI {
             } else if (selest == 2) {
                     System.out.println("===Edit Item by Id===");
                     System.out.println("Enter Id: ");
-                    String id = scanner.nextLine();
+                    String id = input.askStr("Enter Id: ");
                     System.out.println("Enter newName: ");
-                    String name = scanner.nextLine();
+                    String name = input.askStr("Enter newName: ");
                     Item item = new Item(name);
                     if (tracker.replase(id, item)) {
                         System.out.println("Item " + id + " replase Name successfully");
@@ -40,7 +40,7 @@ public class StartUI {
             } else if (selest == 3) {
                     System.out.println("===Delete Item by Id===");
                     System.out.println("Enter Id: ");
-                    String id = scanner.nextLine();
+                    String id = input.askStr("Enter Id: ");
                     if (tracker.delete(id)) {
                         System.out.println("Item " + id + " deleted successfully");
                     } else {
@@ -49,7 +49,7 @@ public class StartUI {
             } else if (selest == 4) {
                     System.out.println("===Found Item by Id===");
                     System.out.println("Enter Id: ");
-                    String name = scanner.nextLine();
+                    String name = input.askStr("Enter Id: ");
                     Item item = tracker.findById(name);
                     System.out.println("===Show Item by Id===");
                     System.out.println("===Id====          ===Name===");
@@ -57,7 +57,7 @@ public class StartUI {
                 } else if (selest == 5) {
                     System.out.println("===Found Item by Name===");
                     System.out.println("Enter Name: ");
-                    String name = scanner.nextLine();
+                    String name = input.askStr("Enter Name: ");
                     Item[] item = tracker.findByName(name);
                     System.out.println("===Show Item by Name===");
                     System.out.println("===Id====          ===Name===");
@@ -88,8 +88,8 @@ public class StartUI {
     }
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Input input = new ConsoleInput();
         Tracker tracker = new Tracker();
-        new StartUI().unit(scanner, tracker);
+        new StartUI().unit(input, tracker);
     }
 }
