@@ -24,7 +24,28 @@ public class StartUI {
                         System.out.println(itemsNew[index].getId() + "   " + itemsNew[index].getName());
                     }
                 }
-            } else if (selest == 4) {
+            }
+            else if (selest == 2) {
+                System.out.println("===Edit Item by Id===");
+                System.out.println("Enter Id: ");
+                String id = scanner.nextLine();
+                System.out.println("Enter newName: ");
+                String name = scanner.nextLine();
+                if (tracker.replase(id, name)) {
+                    System.out.println("Item " + id + " replase Name successfully");
+                } else System.out.println("Item " + id + " not found");
+            }
+            else if (selest == 3) {
+                System.out.println("===Delete Item by Id===");
+                System.out.println("Enter Id: ");
+                String id = scanner.nextLine();
+                if (tracker.delete(id)) {
+                    System.out.println("Item " + id + " deleted successfully");
+                } else {
+                    System.out.println("Item " + id + " not found");
+                }
+            }
+            else if (selest == 4) {
                 System.out.println("===Found Item by Id===");
                 System.out.println("Enter Id: ");
                 String name = scanner.nextLine();
@@ -44,29 +65,30 @@ public class StartUI {
                         System.out.println(item[index].getId() + "   " + item[index].getName());
                     }
                 }
-                    } else if (selest == 6) {
-                    run = false;
-                } else {
-                        run = true;
+            } else if (selest == 6) {
+                run = false;
+            } else {
+                System.out.println("The menu item is not correct, select from 1-6");
+                run = true;
             }
         }
     }
 
-        private void showMenu () {
-            System.out.println("Menu");
-            System.out.println("0. Add");
-            System.out.println("1. Show");
-            System.out.println("2. Edit");
-            System.out.println("3. Delete");
-            System.out.println("4. Find ID");
-            System.out.println("5. Find Name");
-            System.out.println("6. Exit");
-        }
-
-        public static void main (String[] args){
-            Scanner scanner = new Scanner(System.in);
-            Tracker tracker = new Tracker();
-            new StartUI().unit(scanner, tracker);
-        }
-
+    private void showMenu () {
+        System.out.println("Menu");
+        System.out.println("0. Add");
+        System.out.println("1. Show");
+        System.out.println("2. Edit");
+        System.out.println("3. Delete");
+        System.out.println("4. Find ID");
+        System.out.println("5. Find Name");
+        System.out.println("6. Exit");
     }
+
+    public static void main (String[] args){
+        Scanner scanner = new Scanner(System.in);
+        Tracker tracker = new Tracker();
+        new StartUI().unit(scanner, tracker);
+    }
+
+}
