@@ -7,7 +7,7 @@ public class ElementNotFoundException extends Exception {
         String key = "Bil";
         FindEl.indexOf(str, key);
         try {
-            if (FindEl.indexOf(str, key) == -1) {
+            if (FindEl.indexOf(str, key) != -1) {
             }
         } catch (Exception e) {
             e.printStackTrace();
