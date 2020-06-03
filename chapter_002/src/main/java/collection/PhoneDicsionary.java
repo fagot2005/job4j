@@ -11,6 +11,13 @@ public class PhoneDicsionary {
 
     public ArrayList<Person> found(String key) {
         ArrayList<Person> result = new ArrayList<>();
+        System.out.println(person.get(0).getSurname());
+        for (int i = 0; i < person.size(); i++) {
+            if (person.get(i).getName().contains(key) || person.get(i).getSurname().contains(key) || person.get(i).getAddress().contains(key) || person.get(i).getPhone().contains(key)) {
+                result.add(person.get(i));
+            }
+        }
         return result;
     }
 }
+
