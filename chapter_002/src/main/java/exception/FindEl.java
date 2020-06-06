@@ -6,7 +6,15 @@ public class FindEl  {
         for (int i = 0; i < value.length; i++) {
             if (value[i].contains(key)) {
                 rsl = 1;
+                break;
             }
+        }
+        try {
+            if (rsl == -1) {
+                throw new ElementNotFoundException("Ошибка, елемент не найден");
+            }
+        } catch (ElementNotFoundException elementNotFoundException) {
+            elementNotFoundException.printStackTrace();
         }
         return rsl;
     }
@@ -14,12 +22,6 @@ public class FindEl  {
     public static void main(String[] args) throws ElementNotFoundException{
         String[] str = {"Eva", "Mark", "Eric", "Marta", "Denis"};
         String key = "Bil";
-        try {
-            if (FindEl.indexOf(str, key) == -1) {
-                throw new ElementNotFoundException("Ошибка, елемент не найден");
-            }
-        } catch (ElementNotFoundException elementNotFoundException) {
-            elementNotFoundException.printStackTrace();
-        }
+        indexOf(str, key);
     }
 }
