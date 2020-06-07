@@ -5,23 +5,19 @@ public class FindEl  {
         int rsl = -1;
         for (int i = 0; i < value.length; i++) {
             if (value[i].contains(key)) {
-                rsl = 1;
+                rsl = i;
                 break;
             }
         }
-        try {
-            if (rsl == -1) {
-                throw new ElementNotFoundException("Ошибка, елемент не найден");
-            }
-        } catch (ElementNotFoundException elementNotFoundException) {
-            elementNotFoundException.printStackTrace();
+        if (rsl == -1) {
+            throw new ElementNotFoundException("Ошибка, елемент не найден");
         }
         return rsl;
     }
 
     public static void main(String[] args) throws ElementNotFoundException{
         String[] str = {"Eva", "Mark", "Eric", "Marta", "Denis"};
-        String key = "Bil";
+        String key = "Par";
         indexOf(str, key);
     }
 }
