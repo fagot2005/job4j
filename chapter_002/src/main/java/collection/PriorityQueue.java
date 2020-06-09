@@ -10,12 +10,13 @@ public class PriorityQueue {
         int index = 0;
         int counter = 0;
         for (Task x: tasks) {
-            if ( x.getPriority() == this.tasks.get(counter).getPriority()) {
+            if (task.getPriority() <= x.getPriority()) {
                 index = counter;
-        }
+                break;
+            }
             counter ++;
         }
-        this.tasks.add(index, task);
+        this.tasks.add(counter, task);
     }
 
     public Task take() {
