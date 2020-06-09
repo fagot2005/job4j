@@ -1,21 +1,22 @@
 package exception;
 
 public class UserStore {
+
     public static User findUser(User[] users, String login) throws UserNotFoundException {
-        User corectUser = new User("", false);
-        User userAutentificate = new User("", false);
-        for (int i = 0; i<users.length; i++){
-            if (!users[i].getUserName().equals(login)) {
-                userAutentificate = null;
-            }else {
-                userAutentificate = users[i];
+        User result = null;
+        for (User user : users) {
+            if (user.getUserName().equals(login)) {
+                result = user;
+                break;
             }
         }
-        if (userAutentificate == null) {
-            throw new UserNotFoundException("User is not found in Database");
+        if (result == null) {
+            throw new UserNotFoundException("User not found.");
         }
-        return userAutentificate;
+        return result;
     }
+
+
 
     public static boolean validate(User user) throws UserInvalidException {
         if (!user.isValid()){
