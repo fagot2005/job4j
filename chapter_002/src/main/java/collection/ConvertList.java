@@ -10,7 +10,7 @@ public class ConvertList {
         for (int[] x : list) {
             for (int y: x
             ) {
-                rsl.add(rsl.size(), y);
+                rsl.add(y);
                 //count++;
             }
         }
