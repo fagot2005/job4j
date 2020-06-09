@@ -3,16 +3,26 @@ package exception;
 public class UserStore {
     public static User findUser(User[] users, String login) throws UserNotFoundException {
         User corectUser = new User("", false);
+        User userAutentificate = new User("", false);
         for (int i = 0; i<users.length; i++){
             if (!users[i].getUserName().equals(login)) {
-                throw new UserNotFoundException("User is not found in Database");
-            }else corectUser = users[i];
-        }return corectUser;
+                userAutentificate = null;
+            }else {
+                userAutentificate = users[i];
+            }
+        }
+        if (userAutentificate == null) {
+            throw new UserNotFoundException("User is not found in Database");
+        }
+        return userAutentificate;
     }
 
     public static boolean validate(User user) throws UserInvalidException {
-        if (!user.isValid() || user.toString().length()<3){
+        if (!user.isValid()){
             throw new UserInvalidException("User is not valid");
+        }
+        if (user.getUserName().length() < 3) {
+            throw new UserInvalidException("Length of User's Name less than 3 characters");
         }
         return true;
     }
@@ -28,8 +38,8 @@ public class UserStore {
             }
         } catch (UserInvalidException e) {
             e.printStackTrace();
-        } catch (UserNotFoundException e) {
-            e.printStackTrace();
+        } catch (UserNotFoundException ex) {
+            ex.printStackTrace();
         }
     }
 }
