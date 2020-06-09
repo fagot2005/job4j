@@ -6,12 +6,12 @@ import java.util.List;
 public class ConvertList {
     public static List<Integer> convert(List<int[]> list) {
         List<Integer> rsl = new ArrayList<>();
-        int count = 0;
+        //int count = 0;
         for (int[] x : list) {
             for (int y: x
             ) {
-                rsl.add(count, y);
-                count++;
+                rsl.add(rsl.size(), y);
+                //count++;
             }
         }
         return rsl;
