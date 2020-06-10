@@ -10,13 +10,14 @@ public class PassportOffice {
         boolean rsl = false;  //Map.containsKey(key) и Map.get(key).
         if (!citizens.containsKey(citizen.getPassport())) {
             citizens.put(citizen.getPassport(), citizen);
-
+            rsl = true;
         }
         return rsl;
     }
 
 
     public Citizen get(String passport) {
-        return null;
+        //System.out.println(passport);
+        return citizens.get(passport);
     }
 }

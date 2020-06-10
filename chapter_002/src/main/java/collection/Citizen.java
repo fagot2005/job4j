@@ -31,4 +31,11 @@ public class Citizen {
         Citizen citizen = (Citizen) o;
         return Objects.equals(passport, citizen.passport);
     }
+
+    @Override
+    public String toString() {
+        return "passport='" + passport + '\'' +
+                ", userName='" + userName + '\'' +
+                '}';
+    }
 }
