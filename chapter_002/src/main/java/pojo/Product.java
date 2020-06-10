@@ -1,8 +1,24 @@
 package pojo;
 
+import java.util.Objects;
+
 public class Product {
     private String name;
     private int count;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return count == product.count &&
+                Objects.equals(name, product.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, count);
+    }
 
     public Product(String name, int count) {
         this.name = name;
@@ -26,31 +42,10 @@ public class Product {
     }
 
     public static void main(String[] args) {
-        Product[] products = new Product[5];
-        Product milk = new Product("Milk", 40);
-        Product bread = new Product("Bread", 4);
-        Product egg = new Product("Egg", 20);
-        products[0] = milk;
-        products[1] = bread;
-        products[2] = egg;
+        Product first = new Product("Milk", 100);
+        Product second = new Product("Milk", 100);
+        boolean bo = first.equals(second);
+        System.out.println(bo);
 
-        for (int i = 0; i < products.length; i++) {
-            Product product = products[i];
-            System.out.println(products[i].getName());
-        }
-        products[1]=null;
-
-        for (int i = 0; i < products.length; i++) {
-            Product product = products[i];
-            System.out.println(products[i].getName());
-        }
-
-        Product[] prods = new Product[3];
-        prods[0] = milk;
-        prods[1] = bread;
-        prods[2] = egg;
-        for (int i = 0; i < prods.length; i++) {
-            System.out.println(prods[i].getName() + " " + prods[i].getCount());
-        }
     }
 }

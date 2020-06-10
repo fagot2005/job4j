@@ -8,7 +8,7 @@ import static org.junit.Assert.assertThat;
 public class TaskFourOneTest {
     @Test
     public void whenGreetBot() {
-        assertThat(Task_4_1.answer("Привет, Бот."),
+        assertThat(TaskFourOne.answer("Привет, Бот."),
                 is("Привет, умник.")
         );
     }
@@ -16,7 +16,7 @@ public class TaskFourOneTest {
     @Test
     public void whenByeBot() {
         assertThat(
-                Task_4_1.answer("Пока."),
+                TaskFourOne.answer("Пока."),
                 is("До скорой встречи.")
         );
     }
@@ -24,7 +24,7 @@ public class TaskFourOneTest {
     @Test
     public void whenUnknownBot() {
         assertThat(
-                Task_4_1.answer("Сколько будет 2 + 2?"),
+                TaskFourOne.answer("Сколько будет 2 + 2?"),
                 is("Это ставит меня в тупик. Задайте другой вопрос.")
         );
     }
