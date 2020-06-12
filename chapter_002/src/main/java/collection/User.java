@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class User implements Comparable<User> {
     private String name;
-    private int age;
+    private Integer age;
 
     public User(String name, int age) {
         this.name = name;
@@ -27,16 +27,24 @@ public class User implements Comparable<User> {
 
     @Override
     public String toString() {
-        return "User{" +
-                "name='" + name + '\'' +
+        return "name='" + name + '\'' +
                 ", age=" + age +
                 '}';
     }
 
     @Override
     public int compareTo(User o) {
-        if (this.name.equals(o.name)) {
-            return -1;
-        } else return this.age - o.age;
+        int result = this.name.compareTo(o.name);
+        if (result == 0) {
+            result = this.age.compareTo(o.age);
+        }
+        return result;
     }
+
+
+
+//        if (this.name.equals(o.name)) {
+//            return this.age - o.age;
+//        } else return ;
+
 }
