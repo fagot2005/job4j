@@ -25,14 +25,16 @@ public class User implements Comparable<User> {
         return Objects.hash(name, age);
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
 
     @Override
     public int compareTo(User o) {
-        if (o.name.equals(this.name)) {
-            if (o.age == this.age) {
-                return 1;
-            }
-        }
-        return 0;
+        return this.age - o.age;
     }
 }
