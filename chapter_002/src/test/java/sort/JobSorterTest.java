@@ -21,7 +21,7 @@ public class JobSorterTest {
     public void JobUpByPriority() {
         Comparator<Job> cmpNamePriority = new JobUpByName();
         int rsl = cmpNamePriority.compare(
-                new Job("Impl task", 0),
+                new Job("Fix bug", 0),
                 new Job("Fix bug", 1)
         );
         assertThat(rsl, lessThan(3));
@@ -34,6 +34,6 @@ public class JobSorterTest {
                 new Job("Impl task", 0),
                 new Job("Fix bug", 1)
         );
-        assertThat(rsl, lessThan(3));
+        assertThat(rsl, lessThan(0));
     }
 }
