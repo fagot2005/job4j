@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class User implements Comparable<User> {
     private String name;
-    private Integer age;
+    private int age;
 
     public User(String name, int age) {
         this.name = name;
@@ -36,7 +36,7 @@ public class User implements Comparable<User> {
     public int compareTo(User o) {
         int result = this.name.compareTo(o.name);
         if (result == 0) {
-            result = this.age.compareTo(o.age);
+            result = Integer.compare(this.age, o.age);
         }
         return result;
     }
