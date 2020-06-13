@@ -9,7 +9,7 @@ public class BankService {
     private Map<User, List<Account>> users = new HashMap<>();
 
     public void addUser(User user) {
-        users.put(user, null);
+        users.putIfAbsent(user, new ArrayList());
     }
 
     public void addAccount(String passport, Account account) {
