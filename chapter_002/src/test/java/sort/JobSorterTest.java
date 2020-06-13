@@ -1,53 +1,39 @@
 package sort;
 
 import org.junit.Test;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-
-import static org.hamcrest.Matchers.greaterThan;
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertArrayEquals;
+import java.util.Comparator;
+import static org.hamcrest.Matchers.lessThan;
 import static org.junit.Assert.assertThat;
 
 public class JobSorterTest {
 
     @Test
     public void JobDescByName() {
-        List<Job> jobs = Arrays.asList(
-                new Job("Fix bug", 1),
-                new Job("Fix bug", 4),
-                new Job("Fix bug", 2),
-                new Job("X task", 0)
+        Comparator<Job> cmpNamePriority = new JobDescByName();
+        int rsl = cmpNamePriority.compare(
+                new Job("Impl task", 0),
+                new Job("Fix bug", 1)
         );
-        Collections.sort(jobs, new JobDescByName());
-        //assertThat(jobs, ('X task', 0){"Fix bug", 4}, name='Fix bug', priority=2});
-        System.out.println(jobs);
-    }
+        assertThat(rsl, lessThan(0));
+        }
 
     @Test
     public void JobUpByPriority() {
-        List<Job> jobs = Arrays.asList(
-                new Job("Fix bug", 1),
-                new Job("Fix bug", 4),
-                new Job("Fix bug", 2),
-                new Job("X task", 0)
+        Comparator<Job> cmpNamePriority = new JobUpByName();
+        int rsl = cmpNamePriority.compare(
+                new Job("Impl task", 0),
+                new Job("Fix bug", 1)
         );
-        Collections.sort(jobs, new JobUpByPriority());
-        //assertThat(jobs, ('X task', 0){"Fix bug", 4}, name='Fix bug', priority=2});
-        System.out.println(jobs);
+        assertThat(rsl, lessThan(3));
     }
 
     @Test
-    public void JobUpByPriorityAndDescByName() {
-        List<Job> jobs = Arrays.asList(
-                new Job("Fix bug", 1),
-                new Job("Fix bug", 4),
-                new Job("Fix bug", 2),
-                new Job("X task", 0)
+    public void whenCompatorByNameAndPrority() {
+        Comparator<Job> cmpNamePriority = new JobDescByName().thenComparing(new JobDescByPriority());
+        int rsl = cmpNamePriority.compare(
+                new Job("Impl task", 0),
+                new Job("Fix bug", 1)
         );
-        Collections.sort(jobs, new JobDescByPriority().thenComparing(new JobDescByName()));
-        //assertThat(jobs, ('X task', 0){"Fix bug", 4}, name='Fix bug', priority=2});
-        System.out.println(jobs);
+        assertThat(rsl, lessThan(3));
     }
 }
