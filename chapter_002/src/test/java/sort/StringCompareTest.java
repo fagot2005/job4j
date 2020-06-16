@@ -16,6 +16,7 @@ public class StringCompareTest {
                 "Ivanov",
                 "Ivanov"
         );
+        System.out.println(rst);
         assertThat(rst, is(0));
     }
 
@@ -26,6 +27,7 @@ public class StringCompareTest {
                 "Ivanov",
                 "Ivanova"
         );
+        System.out.println(rst);
         assertThat(rst, lessThan(0));
     }
 
@@ -36,6 +38,7 @@ public class StringCompareTest {
                 "Petrov",
                 "Ivanova"
         );
+        System.out.println(rst);
         assertThat(rst, greaterThan(0));
     }
 
@@ -46,6 +49,7 @@ public class StringCompareTest {
                 "Petrov",
                 "Patrov"
         );
+        System.out.println(rst);
         assertThat(rst, greaterThan(0));
     }
 
@@ -56,6 +60,7 @@ public class StringCompareTest {
                 "Patrova",
                 "Petrov"
         );
+        System.out.println(rst);
         assertThat(rst, lessThan(0));
     }
 }
