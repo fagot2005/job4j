@@ -4,8 +4,8 @@ import java.util.Objects;
 
 public class User {
 
-public String passport;
-public  String username;
+private String passport;
+private String username;
 
     public User(String passport, String username) {
         this.passport = passport;

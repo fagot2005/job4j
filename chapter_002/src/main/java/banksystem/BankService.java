@@ -22,7 +22,7 @@ public class BankService {
     public User findByPassport(String passport) {
         for (Map.Entry<User, List<Account>>  entry: users.entrySet()
         ) {
-            if (entry.getKey().passport == passport) {
+            if (entry.getKey().getPassport().equals(passport)) {
                 return entry.getKey();
             }
         }
@@ -30,37 +30,33 @@ public class BankService {
     }
 
     public Account findByRequisite(String passport, String requisite) {
-        for (Map.Entry<User, List<Account>>  entry: users.entrySet()
-             ) {
-//            for (List acauntOfUsers: users.values()
-//                 ) {
-            for (Map entry.getValue(). acc:
-                 ) {
-
+        Account account = null;
+        User user = findByPassport(passport);
+        if (user != null) {
+            List<Account> accounts = users.get(user);
+            int acc = 0;
+            for (Account userAcc : accounts
+            ) {
+                if (userAcc.requisite.equals(requisite)) {
+                    return accounts.get(acc);
+                }
             }
-                System.out.println(entry.getKey() + ", " + entry.getValue());
-//                if (entry.getKey().passport = passport &&
-//                        acauntOfUsers.set(acauntOfUsers., users.values()) == requisite) {
-//
-//            }
-
+            acc++;
         }
-//        List<Account> allAcauntOfUsers = new ArrayList<>();
-////        for (Map.Entry <User, List<Account>> entry: users.entrySet()
-////             ) {
-//            for (List<Account> : accounts
-//                 ) {
-//                User user = entry.getKey();
-////                if (user.passport == passport &&
-//                        allAcauntOfUsers.set(user.passport, ) == requisite)
-            //}
         return null;
-        }
-
+    }
 
 
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String dеstRequisite, double amount) {
+        User user = findByPassport(srcPassport);
+        //System.out.println(user.getUsername());
+        Account account = findByRequisite(user.getPassport(), dеstRequisite);
+        //System.out.println(account.requisite);
+        //BankService.findByRequisite
+
+        account.setBalance(account.getBalance() + amount);
+        //System.out.println(account.getBalance());
         boolean rsl = false;
         return rsl;
     }
