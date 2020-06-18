@@ -3,7 +3,7 @@ package banksystem;
 import java.util.Objects;
 
 public class Account {
-    public String requisite;
+    private String requisite;
     private double balance;
 
     public Account(String requisite, double balance) {

@@ -9,14 +9,16 @@ public class BankService {
     private Map<User, List<Account>> users = new HashMap<>();
 
     public void addUser(User user) {
-        users.put(user, new ArrayList<>());
+        users.putIfAbsent(user, new ArrayList<>());
     }
 
     public void addAccount(String passport, Account account) {
-        //System.out.println(account);
-        List<Account> accounts = new ArrayList<>();
-        accounts.add(account);
-        users.put(findByPassport(passport), accounts);
+        User user = findByPassport(passport);
+        if (user != null) {
+            List<Account> accounts = users.get(user);
+            accounts.add(account);
+            users.put(findByPassport(passport), accounts);
+        }
     }
 
     public User findByPassport(String passport) {
@@ -34,14 +36,12 @@ public class BankService {
         User user = findByPassport(passport);
         if (user != null) {
             List<Account> accounts = users.get(user);
-            int acc = 0;
             for (Account userAcc : accounts
             ) {
-                if (userAcc.requisite.equals(requisite)) {
-                    return accounts.get(acc);
+                if (userAcc.getRequisite().equals(requisite)) {
+                    return userAcc;
                 }
             }
-            acc++;
         }
         return null;
     }
@@ -51,12 +51,15 @@ public class BankService {
                                  String destPassport, String dеstRequisite, double amount) {
         User user = findByPassport(srcPassport);
         //System.out.println(user.getUsername());
-        Account account = findByRequisite(user.getPassport(), dеstRequisite);
+        Account accountMinus = findByRequisite(user.getPassport(), srcRequisite);
+        Account accountPlus = findByRequisite(user.getPassport(), dеstRequisite);
         //System.out.println(account.requisite);
         //BankService.findByRequisite
-
-        account.setBalance(account.getBalance() + amount);
-        //System.out.println(account.getBalance());
+        if (accountMinus.getBalance() >= amount) {
+            accountMinus.setBalance(accountMinus.getBalance() - amount);
+            accountPlus.setBalance(accountPlus.getBalance() + amount);
+            //System.out.println(account.getBalance());
+        }
         boolean rsl = false;
         return rsl;
     }
