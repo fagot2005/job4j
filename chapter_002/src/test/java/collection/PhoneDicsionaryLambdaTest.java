@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 public class PhoneDicsionaryLambdaTest {
 
         @Test
-        public void whenFindByName() {
+        public static void whenFindByName() {
             PhoneDicsionaryLambda phones = new PhoneDicsionaryLambda();
             phones.add(
                     new Person("Petr", "Arsentev", "534872", "Bryansk")
