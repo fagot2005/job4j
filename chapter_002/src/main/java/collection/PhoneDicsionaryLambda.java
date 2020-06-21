@@ -16,13 +16,19 @@ public class PhoneDicsionaryLambda {
         Predicate<Person> combineSurname = x -> x.getSurname().contains(key);
         Predicate<Person> combinePhone = x -> x.getAddress().contains(key);
         Predicate<Person> combineName = x -> x.getName().contains(key);
-        Predicate<Person> combine = Comparator.comparing(combineAddress).or(combineSurname).or(combinePhone).or(combineName);
+        Predicate<Person> or = combineAddress.or(combineSurname).or(combinePhone).or(combineName);
         ArrayList<Person> result = new ArrayList<>();
         for (Person person : persons) {
-            if (combine.test(person)) {
+            if (or.test(person)) {
                 result.add(person);
             }
         }
         return result;
     }
 }
+
+
+
+
+
+

@@ -11,7 +11,7 @@ public class PhoneDicsionaryLambdaTest {
 
         @Test
         public void whenFindByName() {
-            PhoneDicsionary phones = new PhoneDicsionary();
+            PhoneDicsionaryLambda phones = new PhoneDicsionaryLambda();
             phones.add(
                     new Person("Petr", "Arsentev", "534872", "Bryansk")
             );
