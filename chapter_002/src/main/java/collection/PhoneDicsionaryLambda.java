@@ -1,6 +1,7 @@
 package collection;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.function.Predicate;
 
 public class PhoneDicsionaryLambda {
@@ -11,10 +12,11 @@ public class PhoneDicsionaryLambda {
     }
 
     public ArrayList<Person> find(String key) {
-        Predicate<Person> combine = x -> x.getAddress().contains(key) ||
-                x.getSurname().contains(key) ||
-                x.getAddress().contains(key) ||
-                x.getPhone().contains(key);
+        Predicate<Person> combineAddress = x -> x.getAddress().contains(key);
+        Predicate<Person> combineSurname = x -> x.getSurname().contains(key);
+        Predicate<Person> combinePhone = x -> x.getAddress().contains(key);
+        Predicate<Person> combineName = x -> x.getName().contains(key);
+        Predicate<Person> combine = Comparator.comparing(combineAddress).or(combineSurname).or(combinePhone).or(combineName);
         ArrayList<Person> result = new ArrayList<>();
         for (Person person : persons) {
             if (combine.test(person)) {
