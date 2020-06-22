@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.function.Predicate;
 
 public class PhoneDicsionary {
-    private static ArrayList<Person> persons = new ArrayList<Person>();
+    private ArrayList<Person> persons = new ArrayList<Person>();
 
     public void add(Person person) {
         this.persons.add(person);
@@ -21,7 +21,7 @@ public class PhoneDicsionary {
         return result;
     }
 
-    public static ArrayList<Person> find(String key) {
+    public ArrayList<Person> find(String key) {
         Predicate<Person> combineAddress = x -> x.getAddress().contains(key);
         Predicate<Person> combineSurname = x -> x.getSurname().contains(key);
         Predicate<Person> combinePhone = x -> x.getAddress().contains(key);
