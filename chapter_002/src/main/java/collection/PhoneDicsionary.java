@@ -13,7 +13,7 @@ public class PhoneDicsionary {
     public ArrayList<Person> found(String key) {
         ArrayList<Person> result = new ArrayList<>();
         System.out.println(persons.get(0).getSurname());
-        for (int i = 0; i < persons.size(); i++) {
+        for (var i = 0; i < persons.size(); i++) {
             if (persons.get(i).getName().contains(key) || persons.get(i).getSurname().contains(key) || persons.get(i).getAddress().contains(key) || persons.get(i).getPhone().contains(key)) {
                 result.add(persons.get(i));
             }
@@ -28,7 +28,7 @@ public class PhoneDicsionary {
         Predicate<Person> combineName = x -> x.getName().contains(key);
         Predicate<Person> or = combineAddress.or(combineSurname).or(combinePhone).or(combineName);
         ArrayList<Person> result = new ArrayList<>();
-        for (Person person : persons) {
+        for (var person : persons) {
             if (or.test(person)) {
                 result.add(person);
             }
