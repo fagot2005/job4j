@@ -20,7 +20,7 @@ public class FullSearchTest {
                 new TaskCollection("1", "First desc"),
                 new TaskCollection("2", "Second desc"),
                 new TaskCollection("1", "First desc"));
-        Set<String> expected = new HashSet<>(Arrays.asList("1", "2"));
+        Set<String> expected = new HashSet<>(List.of("1", "2"));
         assertThat(FullSearch.extractNumber(tasksCollection), is(expected));
     }
 
