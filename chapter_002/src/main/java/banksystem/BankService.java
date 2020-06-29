@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class BankService {
     private Map<User, List<Account>> users = new HashMap<>();
@@ -21,13 +22,20 @@ public class BankService {
     }
 
     public User findByPassport(String passport) {
-        for (Map.Entry<User, List<Account>>  entry: users.entrySet()
-        ) {
-            if (entry.getKey().getPassport().equals(passport)) {
-                return entry.getKey();
-            }
-        }
-        return null;
+
+
+
+
+        return users.entrySet().stream()
+                .filter(userListEntry -> userListEntry.getKey().getPassport().equals(passport))
+                .collect(Collectors.toList());
+//        for (Map.Entry<User, List<Account>>  entry: users.entrySet()
+//        ) {
+//            if (entry.getKey().getPassport().equals(passport)) {
+//                return entry.getKey();
+//            }
+//        }
+//        return null;
     }
 
     public Account findByRequisite(String passport, String requisite) {
@@ -35,12 +43,14 @@ public class BankService {
         User user = findByPassport(passport);
         if (user != null) {
             List<Account> accounts = users.get(user);
-            for (Account userAcc : accounts
-            ) {
-                if (userAcc.getRequisite().equals(requisite)) {
-                    return userAcc;
-                }
-            }
+                        return accounts.stream().filter(account1 -> account1.getRequisite().equals(requisite))
+                                .collect(Collectors.toList());
+//            for (Account userAcc : accounts
+//            ) {
+//                if (userAcc.getRequisite().equals(requisite)) {
+//                    return userAcc;
+//                }
+//            }
         }
         return null;
     }
