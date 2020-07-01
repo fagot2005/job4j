@@ -12,8 +12,8 @@ public class DepartmentsTest {
 
     @Test
     public void whenMissed() {
-        List<String> input = Arrays.asList("K1/SK1", "K1/SK1/SSK1", "K1/SK1/SSK2",
-                "K1/SK2");
+        List<String> input = Arrays.asList("K1/SK1/SSK2", "K1/SK1/SSK1", "K1/SK2",
+                "K1/SK1", "K2/SK1", "K2/SK1/SSK1");
         List<String> expect = List.of("K1", "K1/SK1");
         List<String> result = Departments.fillGaps(input);
         assertThat(result, is(expect));
