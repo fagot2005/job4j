@@ -1,9 +1,6 @@
 package banksystem;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class BankService {
     private Map<User, List<Account>> users = new HashMap<>();
@@ -14,12 +11,14 @@ public class BankService {
 
     public void addAccount(String passport, Account account) {
         User user = findByPassport(passport);
-        if (user != null) {
-            List<Account> accounts = users.get(user);
-            if (!accounts.contains(account)) {
-                accounts.add(account);
-            }
+        Optional<User> rsl = Optional.empty();
+        //if (user != null) {
+        List<Account> accounts = users.get(user);
+        if (!accounts.contains(account)) {
+            rsl = Optional.of(user);
+            accounts.add(account);
         }
+        //}
     }
 
     public User findByPassport(String passport) {
@@ -33,13 +32,15 @@ public class BankService {
     public Account findByRequisite(String passport, String requisite) {
         Account account = null;
         User user = findByPassport(passport);
-        if (user != null) {
-            List<Account> accounts = users.get(user);
-            return accounts.stream()
-                    .filter(account1 -> account1.getRequisite().equals(requisite))
-                    .findFirst().orElse(null);
-        }
-        return null;
+        Optional<User> rsl = Optional.empty();
+        //if (user != null) {
+        List<Account> accounts = users.get(user);
+        rsl = Optional.of(user);
+        return accounts.stream()
+                .filter(account1 -> account1.getRequisite().equals(requisite))
+                .findFirst().orElse(null);
+        //}
+        //return null;
     }
 
     public boolean transferMoney(String srcPassport, String srcRequisite,
