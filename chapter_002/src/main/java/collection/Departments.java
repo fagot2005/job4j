@@ -12,20 +12,23 @@ public class Departments {
                 tmp.add(start + el);
             }
         }
-        for (String tm : tmp
-             ) {
+        List<String> employeeByValue = new ArrayList<>(tmp);
+        Collections.sort(employeeByValue);
+        for (String employee : employeeByValue
+        ) {
             for (String dep : deps
-                 ) {
-                if ((dep.substring(0, dep.indexOf("/")).equals(tm))) {
-                    if (dep.contains(tm)) {
+            ) {
+                if ((dep.substring(0, dep.indexOf("/")).equals(employee))) {
+                    if (dep.contains(employee)) {
                         resalt.add(dep);
+                    } else {
+                        resalt.add(employee);
+                        //Collections.sort(new ArrayList<>(resalt), new StringLenghtComparator());
+                        System.out.println(resalt);
                     }
-                    resalt.add(tm);
-                    //Collections.sort(new ArrayList<>(resalt), new StringLenghtComparator());
-                    System.out.println(resalt);
                 }
                 else {
-                    resalt.add(tm);
+                    resalt.add(employee);
                     System.out.println(resalt);
                 }
             }
