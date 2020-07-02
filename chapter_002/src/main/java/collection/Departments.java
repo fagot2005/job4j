@@ -19,13 +19,19 @@ public class Departments {
             }
         }
         List<String> employeeByValue = new ArrayList<>(tmp);
-         Collections.sort(employeeByValue);
+        sortAsc(employeeByValue);
+        //System.out.println(employeeByValue);
+        sortDesc(employeeByValue);
+        //System.out.println(employeeByValue);
         return new ArrayList<>(employeeByValue);
     }
-//    public static void sortAsc(List<String> orgs) {
-//        Collections.sort(orgs, new StringLenghtComparator());
-//    }
 
+    public static void sortAsc(List<String> orgs) {
+        Collections.sort(orgs, new StringLenghtComparator());
+    }
 
-
+    public static void sortDesc(List<String> orgs) {
+        Collections.sort(orgs, new StringDownComparator());
+        //System.out.println(orgs);
+    }
 }
