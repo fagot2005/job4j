@@ -4,26 +4,21 @@ import java.util.Comparator;
 
 public class StringDownComparator implements Comparator<String> {
 
-
     @Override
     public int compare(String o1, String o2) {
-        if (o1.contains("/") && o2.contains("/")) {
-            if (o1.substring(0, o1.indexOf("/")).equals(o2.substring(0, o2.indexOf("/")))) {
-                String first = o1.substring(o1.indexOf("/") + 1);
-                String second = o2.substring(o2.indexOf("/") + 1);
-                return first.compareTo(second);
-            } else {
-                String first = o1.substring(o1.indexOf("/") + 1);
-                String second = o2.substring(o2.indexOf("/") + 1);
-                return second.compareTo(first);
-            }
-//            return o2.compareTo(o1);
-//            //            if (o1.substring(0, o1.indexOf("/"))
-////                    .equals(o2.substring(0, o2.indexOf("/")))) {
-////
-////            } else {
-//
+        String o1BeforeSlash;
+        String o2BeforeSlash;
+        if (o1.contains("/")) {
+            o1BeforeSlash = o1.substring(0, o1.indexOf("/"));
+        } else {
+            o1BeforeSlash = o1;
         }
-        return o2.compareTo(o1);
+        if (o2.contains("/")) {
+            o2BeforeSlash = o2.substring(0, o2.indexOf("/"));
+        } else {
+            o2BeforeSlash = o2;
         }
+        int result = o2BeforeSlash.compareTo(o1BeforeSlash);
+        return result == 0 ? o1.compareTo(o2) : result;
+    }
 }
